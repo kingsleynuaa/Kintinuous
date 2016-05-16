@@ -54,10 +54,10 @@ if [[ $version == *"15.04"* ]] ; then
 fi
 
 #Building OpenCV from scratch without Qt and with nonfree
-wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.9/opencv-2.4.9.zip
-unzip opencv-2.4.9.zip
-rm opencv-2.4.9.zip
-cd opencv-2.4.9
+wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.1.0/opencv-3.1.zip
+unzip opencv-3.1.0.zip
+rm opencv-3.1.0.zip
+cd opencv-3.1.0
 mkdir build
 cd build
 cmake -D BUILD_NEW_PYTHON_SUPPORT=OFF -D WITH_OPENCL=OFF -D WITH_OPENMP=ON -D INSTALL_C_EXAMPLES=OFF -D BUILD_DOCS=OFF -D BUILD_EXAMPLES=OFF -D WITH_QT=OFF -D WITH_OPENGL=OFF -D WITH_VTK=OFF -D BUILD_PERF_TESTS=OFF -D BUILD_TESTS=OFF -D WITH_CUDA=OFF -D BUILD_opencv_gpu=OFF ..
