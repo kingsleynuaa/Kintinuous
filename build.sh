@@ -54,7 +54,7 @@ if [[ $version == *"15.04"* ]] ; then
 fi
 
 #Building OpenCV from scratch without Qt and with nonfree
-wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.1.0/opencv-3.1.zip
+wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.1.0/opencv-3.1.0.zip
 unzip opencv-3.1.0.zip
 rm opencv-3.1.0.zip
 cd opencv-3.1.0
@@ -69,7 +69,15 @@ echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig" | sudo tee -a /
 echo "export PKG_CONFIG_PATH" | sudo tee -a /etc/bash.bashrc
 source /etc/bash.bashrc
 cd ../..
-rm -rf opencv-2.4.9
+
+
+#build OpenCV with extra modules
+cd opencv-3.1.0
+git clone https://github.com/Itseez/opencv_contrib
+cd build
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/module ../
+make -j5 
+
 
 #DLib for place recognition
 git clone https://github.com/dorian3d/DLib.git
@@ -109,6 +117,7 @@ wget http://people.csail.mit.edu/kaess/isam/isam_v1_7.tgz
 tar -xvf isam_v1_7.tgz
 rm isam_v1_7.tgz
 cd isam_v1_7
+mkdir build_
 cd build
 cmake ..
 make -j8
