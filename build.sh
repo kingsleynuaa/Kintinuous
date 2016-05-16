@@ -72,10 +72,10 @@ cd ../..
 
 
 #build OpenCV with extra modules
-cd opencv-3.1.0
+#cd opencv-3.1.0
 git clone https://github.com/Itseez/opencv_contrib
-cd build
-cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/module ../
+cd opencv-3.1.0/build
+cmake -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ../
 make -j5 
 
 
